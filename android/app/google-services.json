@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1092086720542",
+    "firebase_url": "https://my-secrets-182718.firebaseio.com",
+    "project_id": "my-secrets-182718",
+    "storage_bucket": "my-secrets-182718.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092086720542:android:f509644c12b862a4",
+        "android_client_info": {
+          "package_name": "io.mysecrets.app.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1092086720542-1ipfmge7ddg0omr02foroef22u3v3k6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaiTudbvfAhRuUNAT0P6VHAY8w8YvqQlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1092086720542-1ipfmge7ddg0omr02foroef22u3v3k6c.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1092086720542-hio5ldhkhmfp9n06h7m1712911u9s5dk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "io.mysecrets.app.mobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
