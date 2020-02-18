@@ -1,6 +1,7 @@
-
+/* 
 // THIS IS FOR DEBUGGING ONLY THIS IS NOT SECURE AND WILL NOT BE AVAILABLE IN PRODUCTION
 import 'package:flutter/material.dart';
+import 'package:mobile/models/datastore.dart';
 import 'package:mobile/models/entry.dart';
 import 'package:mobile/models/folder.dart';
 import 'package:mobile/util/backends/Backend.dart';
@@ -12,24 +13,18 @@ class FirebaseDB extends Backend {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseUser _user;
   FolderWidgetFactory childWidget;
-  FirebaseDB(this.childWidget) : super(childWidget);
+  final Datastore datastore;
+  FirebaseDB(this.childWidget, this.datastore) : super(childWidget, datastore);
 
   @override
   void initState() {
     super.initState();
-    _auth.currentUser().then((user) {
-      setState(() {
-        _user = user;
-        if(user != null){
-          status = true;
-        }
-      });
-    });
+    
   } 
 
   @override
   Widget build(BuildContext context) {
-    if(status) {
+    if(!loading) {
       var folder = new Folder();
       folder.title = "(root)";
       folder.path = "";
@@ -56,7 +51,7 @@ class _FirebaseEntryLoaderState extends State<_FirebaseEntryLoader> {
   _FirebaseEntryLoaderState(this.path, this.childFactory);
   final String path;
   final Widget Function(Entry entry) childFactory;
-
+  
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -178,4 +173,4 @@ class _FirebaseFolderLoaderState extends State<_FirebaseFolderLoader> {
   Future<bool> saveCollection(Collection collection) {
     // TODO: implement save
     return null;
-  }*/
+  }*/*/

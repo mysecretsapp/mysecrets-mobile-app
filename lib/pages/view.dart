@@ -36,10 +36,10 @@ class _ViewPageState extends State<ViewPage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        title: Text(entry.title)
+        title: Text("${entry.title}")
       ),
       body: Center(
-        child: Text(entry.description)
+        child: Text("${entry.description}")
       ),
     );
   }

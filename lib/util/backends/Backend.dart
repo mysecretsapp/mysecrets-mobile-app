@@ -1,23 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:mobile/models/folder.dart';
+import 'dart:async';
 
-typedef  Widget BackendChildWidgetFactory(Folder folder);
+import 'package:mobile/models/base.dart';
+import 'package:mobile/models/datastore.dart';
 
-class BackendWidget extends StatefulWidget {
-  final Backend Function() _createState;
-
-  BackendWidget(this._createState, { Key key }) : super(key: key);
-  @override
-  createState() => this._createState();
-}
-
-class Backend extends State<BackendWidget> {
-  bool status = false;
-  final Folder folder;
-  final BackendChildWidgetFactory childWidget;
-  Backend(this.childWidget, [this.folder]);
+abstract class Backend {
+  final Datastore datastore;
+  Backend(this.datastore);
   
-  @override
-  Widget build(BuildContext context) => Text('Not Used');
+  Future<String> create<T extends Base>(T entity);
+  Future<void> update<T extends Base>(T entity);
+  Future<void> delete(String uuid);
+  Future<T> fetch<T extends Base>(String uuid);
+  Future<void> init();
 }
-

@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
-import 'package:mobile/models/folder.dart';
-import 'package:mobile/pages/list.dart';
-import 'package:mobile/util/backends/FirebaseDB.dart';
-import 'package:mobile/util/backends/Backend.dart';
-void main() => runApp(MyApp());
+import 'package:mobile/pages/datastores/list.dart';
+import 'package:mobile/util/DBProviders/LocalDSProvider.dart';
+
+import 'main.reflectable.dart';
+//import 'package:mobile/models/folder.dart';
+//import 'package:mobile/pages/list.dart';
+//import 'package:mobile/util/backends/FirebaseDB.dart';
+//import 'package:mobile/util/backends/Backend.dart';
+void main() {
+  initializeReflectable();
+  return runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   static FirebaseAnalytics analytics = FirebaseAnalytics();
@@ -30,7 +37,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       navigatorObservers: <NavigatorObserver>[observer],
-      home: BackendWidget(() => FirebaseDB((folder) => ListPage(title: 'Secrets', folder: folder))),
+      home: DatastoresListPage(LocalDSProvider.db),
+      //home: BackendWidget(() => FirebaseDB((folder) => ListPage(title: 'Secrets', folder: folder))),
     );
   }
 }

@@ -2,22 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobile/models/base.dart';
 import 'package:mobile/models/secret/secret.dart';
+import 'package:dart_json_mapper/dart_json_mapper.dart';
 
-typedef Widget EntryWidgetFactory(BuildContext context, Entry entry) ;
-typedef Widget EntryLoader(Entry entry, EntryWidgetFactory widgetFactory) ;
-
-class Entry extends Base
- {
-
+@jsonSerializable
+class Entry extends Base {
   String description;
-  List<String> tags;
+  List<String> tags = [];
   List<Secret> secrets = [];
-  EntryLoader loader;
-  Entry([this.loader]);
-  Widget load( EntryWidgetFactory widgetFactory) => this.loader(this, widgetFactory);
 
-  //Future<List<Entry>> get children => this.backend.getChildren(this);
-  //Future<List<Secret>> get secrets => this.backend.getSecrets(this);
-  //Future<void> save() async => this.backend.saveCollection(this);
-  //Future<void> delete() async => this.backend.deleteCollection(this);
+  Entry({uuid, title, this.description, this.tags, this.secrets, parentUUID}) : super(uuid: uuid, title: title, parentUUID: parentUUID);
 }
